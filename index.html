@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Deepak | Wind Energy & CFD Research</title>
+<meta charset="UTF-8">
+<title>Deepak Kumar Singh | CFD & Wind Energy Researcher</title>
 
 <style>
 body{
-    font-family: Arial, sans-serif;
     margin:0;
-    background:#f4f6f8;
-    color:#333;
+    font-family: "Segoe UI", Arial;
+    background:#f5f7fa;
+    color:#222;
 }
 
 /* NAVBAR */
-.nav{
+.navbar{
     background:#0b3d91;
     padding:15px;
     text-align:center;
+    position:sticky;
+    top:0;
 }
-.nav a{
+.navbar a{
     color:white;
     margin:15px;
     text-decoration:none;
-    font-weight:bold;
+    font-weight:600;
 }
 
-/* HEADER */
-.header{
-    text-align:center;
-    padding:60px 20px;
-    background:white;
+/* LAYOUT */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:30px;
 }
 
 .section{
-    max-width:900px;
-    margin:40px auto;
     background:white;
     padding:30px;
+    margin-bottom:25px;
     border-radius:10px;
     box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
@@ -44,88 +46,162 @@ h1,h2{
     color:#0b3d91;
 }
 
-.footer{
+.profile{
     text-align:center;
-    padding:20px;
+}
+
+.profile img{
+    width:160px;
+    border-radius:50%;
+}
+
+.button{
     background:#0b3d91;
     color:white;
+    padding:10px 18px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+ul{
+    line-height:1.6;
+}
+
+.footer{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-<div class="nav">
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+<div class="navbar">
+<a href="#about">About</a>
+<a href="#research">Research</a>
+<a href="#experience">Experience</a>
+<a href="#publications">Publications</a>
+<a href="#awards">Awards</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
 </div>
 
-<!-- HEADER -->
-<div class="header">
-    <h1>Deepak</h1>
-    <p>Wind Energy | CFD | OpenFOAM | Wind Turbine Aerodynamics</p>
+<div class="container">
+
+<!-- PROFILE -->
+<div class="section profile">
+<img src="https://via.placeholder.com/160">
+<h1>Dr. Deepak Kumar Singh</h1>
+<p>Assistant Manager – R&D | InSolare Energy Ltd.</p>
+<p>CFD • Wind Turbine Aerodynamics • OpenFOAM • Aeroacoustics</p>
+
+<a class="button" href="#">Download CV</a>
 </div>
 
 <!-- ABOUT -->
 <div class="section" id="about">
 <h2>About Me</h2>
-
 <p>
-I work in the area of wind energy systems, computational fluid dynamics (CFD),
-and aerodynamic analysis of horizontal axis wind turbines (HAWT).
-My work focuses on analytical design methods, OpenFOAM simulations,
-and load comparison studies using modern numerical approaches.
+Computational Fluid Dynamics researcher specializing in turbulence modeling,
+aerodynamics, and renewable energy applications. Experienced in OpenFOAM,
+ANSYS Fluent, aeroelastic simulations using OpenFAST, and multiphysics modeling.
+My work bridges academic research and industrial wind energy development.
 </p>
-
 </div>
 
 <!-- RESEARCH -->
 <div class="section" id="research">
 <h2>Research Interests</h2>
-
 <ul>
-<li>Wind Turbine Aerodynamics</li>
-<li>CFD using OpenFOAM</li>
-<li>HAWT Analytical Design</li>
-<li>MRF & SMI Modeling</li>
-<li>Renewable Energy Systems</li>
+<li>Wind Turbine Aerodynamics & HAWT Design</li>
+<li>Computational Fluid Dynamics (RANS, DES)</li>
+<li>Aeroacoustics & Noise Prediction</li>
+<li>Multiphase Flow Modeling</li>
+<li>Flow Control & Turbulence Modeling</li>
+</ul>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+<h2>Professional Experience</h2>
+
+<h3>Assistant Manager – R&D, InSolare Energy Ltd. (2025–Present)</h3>
+<ul>
+<li>Wind turbine blade aerodynamic design and optimization.</li>
+<li>CFD simulations using OpenFOAM (AMI, turbinesFoam).</li>
+<li>Coupled CFD–OpenFAST aeroelastic analysis.</li>
+<li>Performance improvement via data-driven design.</li>
+</ul>
+
+<h3>Principal Researcher, Tata Steel Ltd. (2022–2025)</h3>
+<ul>
+<li>Developed multiphase blast furnace simulator in OpenFOAM.</li>
+<li>Modeled coupled mass, momentum, energy, and species transport.</li>
+<li>Enabled virtual optimization of furnace operations.</li>
 </ul>
 
 </div>
 
-<!-- PROJECTS -->
-<div class="section" id="projects">
-<h2>Projects</h2>
+<!-- PUBLICATIONS -->
+<div class="section" id="publications">
+<h2>Selected Publications</h2>
 
 <ul>
-<li>Analytical Design Tool for HAWT Towers</li>
-<li>OpenFOAM Wind Turbine Simulation</li>
-<li>Load Comparison: OpenFAST vs OpenFOAM</li>
-<li>Mesh Sensitivity & y+ Analysis</li>
+<li><b>Singh, D.K.</b> et al., Flow separation control in three-element airfoil system, <i>PCFD</i>, 2024.</li>
+<li><b>Singh, D.K.</b> et al., Two-airfoil system trailing edge modification, <i>PCFD</i>, 2023.</li>
+<li><b>Singh, D.K.</b> et al., Active flow control over NACA23012 airfoil, <i>Defence Science Journal</i>, 2021.</li>
+<li>Multiple journal & conference publications in CFD and heat transfer.</li>
 </ul>
 
+<p>
+👉 <a href="https://scholar.google.com/citations?user=SMUnaIwAAAAJ">Google Scholar Profile</a>
+</p>
+
+</div>
+
+<!-- AWARDS -->
+<div class="section" id="awards">
+<h2>Awards & Achievements</h2>
+<ul>
+<li>Institute Teaching Assistantship (2016–2021)</li>
+<li>Research Scholar Travel Award – IIT Delhi (2019)</li>
+<li>GATE Mechanical Engineering – 98.48 Percentile</li>
+</ul>
+</div>
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+<h2>Skills</h2>
+
+<b>Software:</b>
+<p>OpenFOAM • ANSYS Fluent • OpenFAST • ICEM CFD • MATLAB</p>
+
+<b>Programming:</b>
+<p>C • C++ • Python</p>
+
+<b>Tools:</b>
+<p>LaTeX • Tecplot • Origin • AutoCAD</p>
 </div>
 
 <!-- CONTACT -->
 <div class="section" id="contact">
 <h2>Contact</h2>
 
+<p>Email: deepak.shujag@gmail.com</p>
+<p>Location: Bengaluru, India</p>
 <p>
 GitHub:
-<a href="https://github.com/deepakiitdelhi">
-github.com/deepakiitdelhi
-</a>
+<a href="https://github.com/deepakiitdelhi">github.com/deepakiitdelhi</a>
 </p>
 
-<p>Email: deepak.shujag@gmail.com</p>
+</div>
 
 </div>
 
 <div class="footer">
-© 2026 Deepak | Personal Website
+© 2026 Dr. Deepak Kumar Singh | CFD & Wind Energy Research
 </div>
 
 </body>
