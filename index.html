@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Deepak Kumar Singh | CFD & Wind Energy Researcher</title>
+<title>Dr. Deepak Kumar Singh | CFD & Wind Energy Researcher</title>
 
 <style>
+
 body{
     margin:0;
-    font-family: "Segoe UI", Arial;
-    background:#f5f7fa;
+    font-family:"Segoe UI",Arial;
+    background:#f4f6f9;
     color:#222;
 }
 
@@ -22,18 +23,19 @@ body{
 }
 .navbar a{
     color:white;
-    margin:15px;
+    margin:14px;
     text-decoration:none;
     font-weight:600;
 }
 
-/* LAYOUT */
+/* CONTAINER */
 .container{
     max-width:1100px;
     margin:auto;
     padding:30px;
 }
 
+/* SECTIONS */
 .section{
     background:white;
     padding:30px;
@@ -42,7 +44,7 @@ body{
     box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-h1,h2{
+h1,h2,h3{
     color:#0b3d91;
 }
 
@@ -64,7 +66,7 @@ h1,h2{
 }
 
 ul{
-    line-height:1.6;
+    line-height:1.7;
 }
 
 .footer{
@@ -73,13 +75,21 @@ ul{
     text-align:center;
     padding:20px;
 }
+
+/* MOBILE */
+@media(max-width:800px){
+.container{padding:15px;}
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
 <a href="#about">About</a>
+<a href="#education">Education</a>
 <a href="#research">Research</a>
 <a href="#experience">Experience</a>
 <a href="#publications">Publications</a>
@@ -94,7 +104,7 @@ ul{
 <div class="section profile">
 <img src="https://via.placeholder.com/160">
 <h1>Dr. Deepak Kumar Singh</h1>
-<p>Assistant Manager – R&D | InSolare Energy Ltd.</p>
+<p><b>Assistant Manager – R&D | InSolare Energy Ltd.</b></p>
 <p>CFD • Wind Turbine Aerodynamics • OpenFOAM • Aeroacoustics</p>
 
 <a class="button" href="#">Download CV</a>
@@ -104,11 +114,31 @@ ul{
 <div class="section" id="about">
 <h2>About Me</h2>
 <p>
-Computational Fluid Dynamics researcher specializing in turbulence modeling,
-aerodynamics, and renewable energy applications. Experienced in OpenFOAM,
-ANSYS Fluent, aeroelastic simulations using OpenFAST, and multiphysics modeling.
-My work bridges academic research and industrial wind energy development.
+Computational Fluid Dynamics researcher with expertise in turbulence modeling,
+aerodynamics, aeroacoustics, and renewable energy systems. Experienced in
+OpenFOAM, ANSYS Fluent, OpenFAST coupling, and multiphysics simulations.
+My work bridges academic research and industrial wind energy applications.
 </p>
+</div>
+
+<!-- EDUCATION -->
+<div class="section" id="education">
+<h2>Education</h2>
+
+<h3>Ph.D. – Applied Mechanics, IIT Delhi (2022)</h3>
+<p><b>Thesis:</b> Numerical Simulations of Flow past a Multi-element Airfoil System and Resulting Noise Radiation</p>
+<ul>
+<li>RANS simulations of multi-element high-lift airfoils.</li>
+<li>Structured O-grid mesh with y+ &lt; 1.</li>
+<li>78% lift improvement through geometric optimization.</li>
+<li>Aeroacoustic prediction using unsteady CFD data.</li>
+</ul>
+
+<h3>M.Tech – Fluids Engineering, MNNIT Allahabad (2016)</h3>
+<p>Computational Study on Flow Control over Airfoil using Synthetic Jet.</p>
+
+<h3>B.Tech – Mechanical Engineering, UPTU Lucknow (2014)</h3>
+
 </div>
 
 <!-- RESEARCH -->
@@ -119,7 +149,7 @@ My work bridges academic research and industrial wind energy development.
 <li>Computational Fluid Dynamics (RANS, DES)</li>
 <li>Aeroacoustics & Noise Prediction</li>
 <li>Multiphase Flow Modeling</li>
-<li>Flow Control & Turbulence Modeling</li>
+<li>Flow Control Techniques</li>
 </ul>
 </div>
 
@@ -127,36 +157,44 @@ My work bridges academic research and industrial wind energy development.
 <div class="section" id="experience">
 <h2>Professional Experience</h2>
 
-<h3>Assistant Manager – R&D, InSolare Energy Ltd. (2025–Present)</h3>
+<h3>Assistant Manager – R&D, InSolare Energy Ltd. (Aug 2025 – Present)</h3>
 <ul>
 <li>Wind turbine blade aerodynamic design and optimization.</li>
 <li>CFD simulations using OpenFOAM (AMI, turbinesFoam).</li>
-<li>Coupled CFD–OpenFAST aeroelastic analysis.</li>
-<li>Performance improvement via data-driven design.</li>
+<li>Coupled CFD–OpenFAST aeroelastic studies.</li>
+<li>Performance enhancement through data-driven design iterations.</li>
 </ul>
 
-<h3>Principal Researcher, Tata Steel Ltd. (2022–2025)</h3>
+<h3>Principal Researcher, Tata Steel Ltd. (Nov 2022 – July 2025)</h3>
 <ul>
 <li>Developed multiphase blast furnace simulator in OpenFOAM.</li>
-<li>Modeled coupled mass, momentum, energy, and species transport.</li>
-<li>Enabled virtual optimization of furnace operations.</li>
+<li>Coupled mass, momentum, energy and species transport modeling.</li>
+<li>Virtual platform for furnace optimization and process understanding.</li>
 </ul>
 
 </div>
 
 <!-- PUBLICATIONS -->
 <div class="section" id="publications">
-<h2>Selected Publications</h2>
+<h2>Publications</h2>
 
+<p>
+<b>Total Publications:</b> 14<br>
+<b>Journal Papers:</b> 8 (7 Published + 1 Accepted)<br>
+<b>Conference Papers:</b> 6
+</p>
+
+<h3>Selected Journal Publications</h3>
 <ul>
-<li><b>Singh, D.K.</b> et al., Flow separation control in three-element airfoil system, <i>PCFD</i>, 2024.</li>
-<li><b>Singh, D.K.</b> et al., Two-airfoil system trailing edge modification, <i>PCFD</i>, 2023.</li>
-<li><b>Singh, D.K.</b> et al., Active flow control over NACA23012 airfoil, <i>Defence Science Journal</i>, 2021.</li>
-<li>Multiple journal & conference publications in CFD and heat transfer.</li>
+<li><b>Singh, D.K.</b> et al., Flow separation control in three-element airfoil system, Progress in CFD, 2024.</li>
+<li><b>Singh, D.K.</b> et al., Trailing edge modification in two-airfoil system, Progress in CFD, 2023.</li>
+<li><b>Singh, D.K.</b> et al., Active flow control over NACA23012 airfoil, Defence Science Journal, 2021.</li>
 </ul>
 
 <p>
-👉 <a href="https://scholar.google.com/citations?user=SMUnaIwAAAAJ">Google Scholar Profile</a>
+<a href="https://scholar.google.com/citations?user=SMUnaIwAAAAJ">
+View Complete Publication List (Google Scholar)
+</a>
 </p>
 
 </div>
@@ -165,9 +203,9 @@ My work bridges academic research and industrial wind energy development.
 <div class="section" id="awards">
 <h2>Awards & Achievements</h2>
 <ul>
-<li>Institute Teaching Assistantship (2016–2021)</li>
-<li>Research Scholar Travel Award – IIT Delhi (2019)</li>
-<li>GATE Mechanical Engineering – 98.48 Percentile</li>
+<li>Institute Teaching Assistantship — IIT Delhi (2016–2021)</li>
+<li>Research Scholar Travel Award — IIT Delhi (2019)</li>
+<li>GATE Mechanical Engineering — 98.48 Percentile (2014)</li>
 </ul>
 </div>
 
@@ -193,7 +231,9 @@ My work bridges academic research and industrial wind energy development.
 <p>Location: Bengaluru, India</p>
 <p>
 GitHub:
-<a href="https://github.com/deepakiitdelhi">github.com/deepakiitdelhi</a>
+<a href="https://github.com/deepakiitdelhi">
+github.com/deepakiitdelhi
+</a>
 </p>
 
 </div>
