@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Dr. Deepak Kumar Singh | CFD & Wind Energy Researcher</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepak | CFD & Engineering Consulting Solutions</title>
 
 <style>
 
 body{
     margin:0;
-    font-family:"Segoe UI",Arial;
+    font-family:"Segoe UI",Arial,sans-serif;
     background:#f4f6f9;
     color:#222;
+    line-height:1.6;
 }
 
 /* NAVBAR */
@@ -20,12 +22,17 @@ body{
     text-align:center;
     position:sticky;
     top:0;
+    z-index: 100;
 }
 .navbar a{
     color:white;
-    margin:14px;
+    margin:0 14px;
     text-decoration:none;
     font-weight:600;
+    transition: color 0.3s;
+}
+.navbar a:hover {
+    color: #a8c1e8;
 }
 
 /* CONTAINER */
@@ -38,16 +45,18 @@ body{
 /* SECTIONS */
 .section{
     background:white;
-    padding:30px;
+    padding:40px;
     margin-bottom:25px;
     border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
 }
 
 h1,h2,h3{
     color:#0b3d91;
+    margin-top: 0;
 }
 
+/* PROFILE HERO */
 .profile{
     text-align:center;
 }
@@ -58,18 +67,54 @@ h1,h2,h3{
     object-fit:cover;
     border-radius:50%;
     border:4px solid #0b3d91;
+    margin-bottom: 15px;
 }
 
+.tagline {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* SERVICES GRID */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.service-card {
+    background: #f9fbff;
+    padding: 20px;
+    border-left: 4px solid #0b3d91;
+    border-radius: 5px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
+/* BUTTONS */
 .button{
+    display: inline-block;
     background:#0b3d91;
     color:white;
-    padding:10px 18px;
+    padding:12px 24px;
     border-radius:6px;
     text-decoration:none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #082a66;
 }
 
 ul{
     line-height:1.7;
+    padding-left: 20px;
 }
 
 .footer{
@@ -77,11 +122,14 @@ ul{
     color:white;
     text-align:center;
     padding:20px;
+    font-size: 0.9em;
 }
 
 /* MOBILE */
 @media(max-width:800px){
-.container{padding:15px;}
+    .container{padding:15px;}
+    .navbar a { display: block; margin: 10px 0;}
+    .section { padding: 25px;}
 }
 
 </style>
@@ -92,131 +140,97 @@ ul{
 <!-- NAVBAR -->
 <div class="navbar">
 <a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#research">Research</a>
-<a href="#experience">Experience</a>
-<a href="#publications">Publications</a>
-<a href="#awards">Awards</a>
+<a href="#services">Consulting Services</a>
+<a href="#expertise">Technical Expertise</a>
+<a href="#experience">Industry Experience</a>
 <a href="#contact">Contact</a>
 </div>
 
 <div class="container">
 
-<!-- PROFILE -->
+<!-- HERO / PROFILE -->
 <div class="section profile">
-<img src="photo_v1.jpg">
-<h1>Dr. Deepak Kumar Singh</h1>
-<p><b>Assistant Manager – R&D | InSolare Energy Ltd.</b></p>
-<p>CFD • Wind Turbine Aerodynamics • OpenFOAM • Aeroacoustics</p>
-
-
+<img src="photo_v1.jpg" alt="Deepak">
+<h1>Deepak</h1>
+<p class="tagline"><b>Independent CFD & Wind Energy Consultant</b></p>
+<p>Bridging advanced numerical research with industrial engineering solutions.</p>
+<a href="#contact" class="button">Discuss Your Project</a>
 </div>
 
 <!-- ABOUT -->
 <div class="section" id="about">
-<h2>About Me</h2>
+<h2>About the Consultancy</h2>
 <p>
-Computational Fluid Dynamics researcher with expertise in turbulence modeling,
-aerodynamics, aeroacoustics, and renewable energy systems. Experienced in
-OpenFOAM, ANSYS Fluent, OpenFAST coupling, and multiphysics simulations.
-My work bridges academic research and industrial wind energy applications.
+Providing advanced Computational Fluid Dynamics (CFD), aerodynamic design, and structural analysis services to the renewable energy and heavy engineering sectors. With a Ph.D. from IIT Delhi and a strong foundation in industrial R&D, I specialize in transforming complex physical phenomena into actionable, optimized engineering designs. 
+</p>
+<p>
+Whether you need high-fidelity simulations for decentralized wind turbine installations, automated custom solvers, or structural evaluations of composite materials, I deliver robust, cost-effective computational solutions.
 </p>
 </div>
 
-<!-- EDUCATION -->
-<div class="section" id="education">
-<h2>Education</h2>
+<!-- SERVICES -->
+<div class="section" id="services">
+<h2>Consulting Services</h2>
+<div class="services-grid">
+    
+    <div class="service-card">
+        <h3>Wind Turbine Aerodynamics</h3>
+        <p>Design and analysis of Horizontal Axis Wind Turbines (HAWT). Expertise in large-scale rotor simulations using MRF and AMI models, aerodynamic optimization, and high-density grid performance evaluations.</p>
+    </div>
 
-<h3>Ph.D. – Applied Mechanics, IIT Delhi (2022)</h3>
-<p><b>Thesis:</b> Numerical Simulations of Flow past a Multi-element Airfoil System and Resulting Noise Radiation</p>
-<ul>
-<li>RANS simulations of multi-element high-lift airfoils.</li>
-<li>78% lift improvement through geometric optimization.</li>
-<li>Aeroacoustic prediction using unsteady CFD data.</li>
-<li>Reduced sound by 50% via optimized multi-element shear-layer interactions.</li>
-</ul>
+    <div class="service-card">
+        <h3>Advanced CFD Modeling</h3>
+        <p>Comprehensive fluid dynamics consulting utilizing OpenFOAM and ANSYS Fluent. Specialized in turbulence modeling (SST k-omega, Spalart-Allmaras), multiphase flows, aeroacoustics, and active flow control.</p>
+    </div>
 
-<h3>M.Tech – Fluids Engineering, MNNIT Allahabad (2016)</h3>
-<p>Computational Study on Flow Control over Airfoil using Synthetic Jet.</p>
+    <div class="service-card">
+        <h3>Structural Mechanics & FEA</h3>
+        <p>Structural integrity analysis including tower design limit state evaluations, gear pair load calculations, and custom Finite Element Analysis for layered anisotropic composite beams using Classical Laminate Theory.</p>
+    </div>
 
-<h3>B.Tech – Mechanical Engineering, UPTU Lucknow (2014)</h3>
+    <div class="service-card">
+        <h3>Engineering Automation</h3>
+        <p>Development of custom Python-based tools to automate complex engineering workflows, from procedural 3D STL geometry generation to automated mesh creation and post-processing utility scripts.</p>
+    </div>
 
 </div>
+</div>
 
-<!-- RESEARCH -->
-<div class="section" id="research">
-<h2>Research Interests</h2>
+<!-- EXPERTISE -->
+<div class="section" id="expertise">
+<h2>Core Technical Expertise</h2>
 <ul>
-<li>Wind Turbine Aerodynamics & HAWT Design</li>
-<li>Computational Fluid Dynamics (RANS, DES)</li>
-<li>Aeroacoustics & Noise Prediction</li>
-<li>Multiphase Flow Modeling</li>
-<li>Flow Control Techniques</li>
+<li><b>Solvers & Software:</b> OpenFOAM (turbinesFoam, snappyHexMesh), ANSYS Fluent, OpenFAST coupling.</li>
+<li><b>Aerodynamics & Noise:</b> High-lift multi-element airfoil optimization, noise radiation prediction, and shear-layer interaction control.</li>
+<li><b>Programming & Documentation:</b> Python (automation and custom solvers), LaTeX (high-quality automated reporting).</li>
+<li><b>Mechanical Design:</b> Wind turbine tower natural frequency calculations, multi-megawatt structural analysis, and heavy machinery components.</li>
 </ul>
 </div>
 
 <!-- EXPERIENCE -->
 <div class="section" id="experience">
-<h2>Professional Experience</h2>
+<h2>Selected Industry Experience</h2>
 
-<h3>Assistant Manager – R&D, InSolare Energy Ltd. (Aug 2025 – Present)</h3>
-<ul>
-<li>Wind turbine blade aerodynamic design and optimization.</li>
-<li>CFD simulations using OpenFOAM (AMI, turbinesFoam and MRF).</li>
-</ul>
+<h3>Wind Energy R&D Optimization</h3>
+<p>Leading aerodynamic design and CFD simulations for industrial wind applications. Extensive work with NREL 5MW reference class turbines, executing precise validation studies on massive grid deployments to ensure field-ready efficiency.</p>
 
-<h3>Principal Researcher, Tata Steel Ltd. (Nov 2022 – July 2025)</h3>
-<ul>
-<li>Developed multiphase blast furnace simulator in OpenFOAM.</li>
-<li>Coupled mass, momentum, energy and species transport modeling.</li>
-<li>Virtual platform for furnace optimization and process understanding.</li>
-</ul>
+<h3>Heavy Industry Multiphysics (Tata Steel Ltd.)</h3>
+<p>Developed a custom multiphase simulator in OpenFOAM coupling mass, momentum, energy, and species transport to create a virtual platform for large-scale furnace optimization.</p>
 
-</div>
-
-<!-- PUBLICATIONS -->
-<div class="section" id="publications">
-<h2>Publications</h2>
-
-<p>
-<b>Total Publications:</b> 14<br>
-<b>Journal Papers:</b> 8<br>
-<b>Conference Papers:</b> 6
-</p>
-
-<h3>Selected Journal Publications</h3>
-<ul>
-<li><b>Singh, D.K.</b> et al., Flow separation control in three-element airfoil system, Progress in CFD, 2024.</li>
-<li><b>Singh, D.K.</b> et al., Trailing edge modification in two-airfoil system, Progress in CFD, 2023.</li>
-<li><b>Singh, D.K.</b> et al., Active flow control over NACA23012 airfoil, Defence Science Journal, 2021.</li>
-</ul>
-
-<p>
-<a href="https://scholar.google.com/citations?user=SMUnaIwAAAAJ">
-View Complete Publication List (Google Scholar)
-</a>
-</p>
-
-</div>
-
-<!-- AWARDS -->
-<div class="section" id="awards">
-<h2>Awards & Achievements</h2>
-<ul>
-<li>Institute Teaching Assistantship — IIT Delhi (2016–2021)</li>
-<li>Research Scholar Travel Award — IIT Delhi (2019)</li>
-</ul>
+<h3>Academic Excellence (IIT Delhi)</h3>
+<p>Ph.D. research focused on numerical simulations of flow past multi-element airfoil systems, achieving significant aerodynamic efficiency improvements and noise reduction through geometric optimization.</p>
 </div>
 
 <!-- CONTACT -->
 <div class="section" id="contact">
-<h2>Contact</h2>
+<h2>Ready to Optimize Your Engineering Process?</h2>
+<p>Available for contract consulting, project-based analysis, and technical advisement.</p>
 
-<p>Email: deepak@am.iitd.ac.in</p>
-<p>Location: Bengaluru, India</p>
+<p><b>Email:</b> deepak@am.iitd.ac.in</p>
+<p><b>Location:</b> Bengaluru, India</p>
 <p>
-GitHub:
-<a href="https://github.com/deepakiitdelhi">
+<b>GitHub:</b>
+<a href="https://github.com/deepakiitdelhi" target="_blank">
 github.com/deepakiitdelhi
 </a>
 </p>
@@ -226,7 +240,7 @@ github.com/deepakiitdelhi
 </div>
 
 <div class="footer">
-© 2026 Dr. Deepak Kumar Singh | CFD & Wind Energy Research
+© 2026 Deepak | CFD & Wind Energy Consulting Solutions
 </div>
 
 </body>
