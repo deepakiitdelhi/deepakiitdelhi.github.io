@@ -465,7 +465,7 @@
     <header id="home">
         <canvas id="particles"></canvas>
         <div class="hero-content fade-in">
-            <img src="https://ui-avatars.com/api/?name=Deepak&background=3b82f6&color=fff&size=512" alt="Deepak" class="profile-pic">
+            <img src="photo_v1.jpg" alt="Deepak" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=Deepak&background=3b82f6&color=fff&size=512'">
             <h1 class="hero-title">Deepak</h1>
             <div class="typing-container">
                 <span id="typed-text"></span><span class="cursor"></span>
@@ -473,14 +473,14 @@
             
             <div class="btn-group">
                 <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</a>
-                <a href="#" class="btn"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                <a href="#" class="btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://scholar.google.com/citations?user=SMUnaIwAAAAJ" target="_blank" class="btn"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="https://github.com/deepakiitdelhi" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
                 <a href="#" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
 
             <div class="stats-grid glass">
                 <div class="stat-card">
-                    <div class="stat-num" data-target="8">8</div>
+                    <div class="stat-num" data-target="8">0</div>
                     <div class="stat-label">Journal Papers</div>
                 </div>
                 <div class="stat-card">
@@ -655,7 +655,7 @@
                     <li>Aeroacoustic mitigation using synthetic jet controls... (AIAA Journal, 2023)</li>
                     <li>OpenFOAM and OpenFAST coupled framework for HAWT... (Renewable Energy, 2025)</li>
                 </ul>
-                <a href="#" class="btn btn-primary" style="display: inline-flex; margin-top: 1.5rem;"><i class="fas fa-graduation-cap"></i> View Full List on Google Scholar</a>
+                <a href="https://scholar.google.com/citations?user=SMUnaIwAAAAJ" target="_blank" class="btn btn-primary" style="display: inline-flex; margin-top: 1.5rem;"><i class="fas fa-graduation-cap"></i> View Full List on Google Scholar</a>
             </div>
             <div class="glass">
                 <h3 style="margin-bottom: 1rem;"><i class="fas fa-trophy"></i> Awards</h3>
@@ -691,11 +691,18 @@
                 I am always open to discussing research collaborations, academic inquiries, or opportunities in CFD and Wind Energy.
             </p>
             <div class="contact-links glass">
-                <a href="mailto:your.email@example.com" class="contact-card">
+                <a href="mailto:deepak@am.iitd.ac.in" class="contact-card">
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h4 style="margin: 0;">Email</h4>
-                        <span style="font-size: 0.85rem; color: var(--text-muted);">Drop me a line</span>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">deepak@am.iitd.ac.in</span>
+                    </div>
+                </a>
+                <a href="https://github.com/deepakiitdelhi" target="_blank" class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <h4 style="margin: 0;">GitHub</h4>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">deepakiitdelhi</span>
                     </div>
                 </a>
                 <a href="#" class="contact-card">
@@ -838,8 +845,8 @@
                         });
                     }
 
-                    // Trigger Number Counters
-                    if (entry.target.id === 'home') {
+                    // Trigger Number Counters when hero-content becomes visible
+                    if (entry.target.classList.contains('hero-content')) {
                         document.querySelectorAll('.stat-num').forEach(counter => {
                             const target = +counter.getAttribute('data-target');
                             const duration = 2000;
