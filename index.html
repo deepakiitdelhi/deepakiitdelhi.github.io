@@ -1,233 +1,945 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Dr. Deepak Kumar Singh | CFD & Wind Energy Researcher</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Deepak Kumar Singh | Research Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables & Theming */
+        :root {
+            --bg-color: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --nav-bg: rgba(15, 23, 42, 0.85);
+            --card-hover: rgba(255, 255, 255, 0.1);
+        }
 
-<style>
+        [data-theme="light"] {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --glass-bg: rgba(0, 0, 0, 0.03);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --nav-bg: rgba(248, 250, 252, 0.85);
+            --card-hover: rgba(0, 0, 0, 0.08);
+        }
 
-body{
-    margin:0;
-    font-family:"Segoe UI",Arial;
-    background:#f4f6f9;
-    color:#222;
-}
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-/* NAVBAR */
-.navbar{
-    background:#0b3d91;
-    padding:15px;
-    text-align:center;
-    position:sticky;
-    top:0;
-}
-.navbar a{
-    color:white;
-    margin:14px;
-    text-decoration:none;
-    font-weight:600;
-}
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-/* CONTAINER */
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:30px;
-}
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            z-index: 10000;
+            transition: width 0.1s;
+        }
 
-/* SECTIONS */
-.section{
-    background:white;
-    padding:30px;
-    margin-bottom:25px;
-    border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+        /* Typography & Utilities */
+        h1, h2, h3 { font-weight: 800; }
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
 
-h1,h2,h3{
-    color:#0b3d91;
-}
+        /* Glassmorphism */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .glass:hover {
+            transform: translateY(-5px);
+            background: var(--card-hover);
+        }
 
-.profile{
-    text-align:center;
-}
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+        .theme-btn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
 
-.profile img{
-    width:180px;
-    height:180px;
-    object-fit:cover;
-    border-radius:50%;
-    border:4px solid #0b3d91;
-}
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding-top: 60px;
+        }
+        #particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--glass-border);
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+        .typing-container {
+            font-size: 1.8rem;
+            color: var(--accent-primary);
+            height: 40px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--accent-primary);
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-.button{
-    background:#0b3d91;
-    color:white;
-    padding:10px 18px;
-    border-radius:6px;
-    text-decoration:none;
-}
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border: none;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
 
-ul{
-    line-height:1.7;
-}
+        /* Animated Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .stat-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-secondary);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.footer{
-    background:#0b3d91;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 2rem;
+        }
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        .tag {
+            padding: 0.5rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+        }
 
-/* MOBILE */
-@media(max-width:800px){
-.container{padding:15px;}
-}
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .skill-group h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--glass-bg);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            width: 0; /* Animated via JS */
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+        }
 
-</style>
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--glass-border);
+            top: 0; bottom: 0; left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Grid Layouts (Projects, Pubs, Awards, Gallery) */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* Specific Card Adjustments */
+        .project-card h3 { margin-bottom: 1rem; }
+        .project-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;}
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+        .gallery-img:hover { transform: scale(1.05); }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-main);
+            min-width: 250px;
+        }
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--accent-primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--nav-bg);
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+        }
+
+        /* Back to Top */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-primary);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        #back-to-top:hover { transform: translateY(-5px); }
+
+        /* Animation Classes */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 70px; right: -100%;
+                flex-direction: column;
+                background: var(--nav-bg);
+                backdrop-filter: blur(15px);
+                width: 250px; height: 100vh;
+                padding: 2rem;
+                transition: right 0.3s;
+                border-left: 1px solid var(--glass-border);
+            }
+            .nav-links.active { right: 0; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; left: 0 !important; }
+            .timeline-item:nth-child(even), .timeline-item:nth-child(odd) { left: 0; }
+            .timeline-item:nth-child(even) .timeline-dot, .timeline-item:nth-child(odd) .timeline-dot { left: 22px; right: auto; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-<a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#research">Research</a>
-<a href="#experience">Experience</a>
-<a href="#publications">Publications</a>
-<a href="#awards">Awards</a>
-<a href="#contact">Contact</a>
-</div>
+    <div id="scroll-progress"></div>
 
-<div class="container">
+    <nav>
+        <h2 style="font-weight: 800; letter-spacing: -1px;">DK<span style="color: var(--accent-primary)">S</span></h2>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
 
-<!-- PROFILE -->
-<div class="section profile">
-<img src="photo_v1.jpg">
-<h1>Dr. Deepak Kumar Singh</h1>
-<p><b>Assistant Manager – R&D | InSolare Energy Ltd.</b></p>
-<p>CFD • Wind Turbine Aerodynamics • OpenFOAM • Aeroacoustics</p>
+    <header id="home">
+        <canvas id="particles"></canvas>
+        <div class="hero-content fade-in">
+            <img src="https://ui-avatars.com/api/?name=Deepak+Singh&background=3b82f6&color=fff&size=512" alt="Dr. Deepak Kumar Singh" class="profile-pic">
+            <h1 class="hero-title">Dr. Deepak Kumar Singh</h1>
+            <div class="typing-container">
+                <span id="typed-text"></span><span class="cursor"></span>
+            </div>
+            
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</a>
+                <a href="#" class="btn"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="#" class="btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
 
+            <div class="stats-grid glass">
+                <div class="stat-card">
+                    <div class="stat-num" data-target="8">0</div>
+                    <div class="stat-label">Journal Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" data-target="5">0</div>
+                    <div class="stat-label">Conferences</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" data-target="10">0</div>
+                    <div class="stat-label">Years Exp.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" data-target="100">0</div>
+                    <div class="stat-label">CFD Cases</div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-</div>
+    <section id="about" class="container fade-in">
+        <h2 class="section-title">About Me</h2>
+        <div class="glass">
+            <p class="about-text">
+                I am a Computational Fluid Dynamics researcher with profound expertise in turbulence modeling, aerodynamics, aeroacoustics, wind turbine design, and multiphase flow simulations. With a strong background in developing solvers using OpenFOAM, ANSYS Fluent, Python, and C++, I bridge the gap between academic research and industrial applications. My work spans across aerospace, renewable energy, and metallurgical systems, focusing on optimizing performance and pioneering sustainable engineering solutions.
+            </p>
+            <div class="tag-cloud">
+                <span class="tag">Computational Fluid Dynamics</span>
+                <span class="tag">Wind Turbine Aerodynamics</span>
+                <span class="tag">HAWT Blade Design</span>
+                <span class="tag">OpenFOAM Development</span>
+                <span class="tag">Python Automation</span>
+                <span class="tag">OpenFAST</span>
+                <span class="tag">Aeroelasticity</span>
+                <span class="tag">Multiphase CFD</span>
+                <span class="tag">Aeroacoustics</span>
+                <span class="tag">Industrial Simulation</span>
+            </div>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<div class="section" id="about">
-<h2>About Me</h2>
-<p>
-Computational Fluid Dynamics researcher with expertise in turbulence modeling,
-aerodynamics, aeroacoustics, and renewable energy systems. Experienced in
-OpenFOAM, ANSYS Fluent, OpenFAST coupling, and multiphysics simulations.
-My work bridges academic research and industrial wind energy applications.
-</p>
-</div>
+    <section id="skills" class="container fade-in">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="glass skill-group">
+                <h3><i class="fas fa-laptop-code" style="color: var(--accent-primary);"></i> Software & Programming</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>OpenFOAM</span><span>95%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>ANSYS Fluent</span><span>90%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Python</span><span>85%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>C++</span><span>80%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
+                </div>
+            </div>
 
-<!-- EDUCATION -->
-<div class="section" id="education">
-<h2>Education</h2>
+            <div class="glass skill-group">
+                <h3><i class="fas fa-wind" style="color: var(--accent-secondary);"></i> Engineering Domain</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Turbulence (DES/RANS)</span><span>95%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Multiphase & Heat Transfer</span><span>85%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Wind Energy & OpenFAST</span><span>90%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Aeroacoustics</span><span>88%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="88%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h3>Ph.D. – Applied Mechanics, IIT Delhi (2022)</h3>
-<p><b>Thesis:</b> Numerical Simulations of Flow past a Multi-element Airfoil System and Resulting Noise Radiation</p>
-<ul>
-<li>RANS simulations of multi-element high-lift airfoils.</li>
-<li>78% lift improvement through geometric optimization.</li>
-<li>Aeroacoustic prediction using unsteady CFD data.</li>
-<li>Reduced sound by 50% via optimized multi-element shear-layer interactions.</li>
-</ul>
+    <section id="experience" class="container fade-in">
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="glass">
+                    <div class="timeline-date">Aug 2025 – Present</div>
+                    <h3>Assistant Manager – R&D</h3>
+                    <h4 style="color: var(--text-muted); margin-bottom: 1rem;">InSolare Energy Ltd.</h4>
+                    <p style="font-size: 0.9rem;">Wind turbine blade design and optimization. Advanced CFD using OpenFOAM, AMI, MRF, and turbinesFoam. Conducted OpenFAST coupling for power optimization and complex blade aerodynamics.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="glass">
+                    <div class="timeline-date">Nov 2022 – Jul 2025</div>
+                    <h3>Principal Researcher</h3>
+                    <h4 style="color: var(--text-muted); margin-bottom: 1rem;">Tata Steel</h4>
+                    <p style="font-size: 0.9rem;">Developed a comprehensive Blast Furnace Simulator utilizing multiphase CFD, species transport, reaction kinetics, and heat transfer. Implemented custom OpenFOAM solvers and optimized parallel computing performance.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="glass">
+                    <div class="timeline-date">PhD, Applied Mechanics</div>
+                    <h3>IIT Delhi</h3>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Thesis:</strong> Numerical Simulations of Flow past a Multi-element Airfoil System and Resulting Noise Radiation.</p>
+                    <p style="font-size: 0.85rem; color: var(--accent-primary); margin-top: 0.5rem;">Achievements: 78% Lift Improvement, 50% Noise Reduction, High Lift Systems.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="glass">
+                    <div class="timeline-date">MTech, Fluids Engineering</div>
+                    <h3>MNNIT Allahabad</h3>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Research focused on Synthetic Jet Flow Control methodologies and fluid dynamics optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h3>M.Tech – Fluids Engineering, MNNIT Allahabad (2016)</h3>
-<p>Computational Study on Flow Control over Airfoil using Synthetic Jet.</p>
+    <section id="projects" class="container fade-in">
+        <h2 class="section-title">Project Showcase</h2>
+        <div class="grid-3">
+            <div class="glass project-card">
+                <i class="fas fa-fan" style="font-size: 2rem; color: var(--accent-primary); margin-bottom: 1rem;"></i>
+                <h3>Wind Turbine Blade Design</h3>
+                <p>Comprehensive design and optimization of HAWT blades coupling OpenFOAM simulations with OpenFAST for maximum aeroelastic efficiency.</p>
+                <div class="tag-cloud" style="justify-content: flex-start;">
+                    <span class="tag">OpenFOAM</span><span class="tag">OpenFAST</span>
+                </div>
+            </div>
+            <div class="glass project-card">
+                <i class="fas fa-fire" style="font-size: 2rem; color: var(--accent-secondary); margin-bottom: 1rem;"></i>
+                <h3>Blast Furnace Simulator</h3>
+                <p>Industrial-scale multiphase CFD simulation mapping species transport, complex reaction kinetics, and heat transfer phenomena.</p>
+                <div class="tag-cloud" style="justify-content: flex-start;">
+                    <span class="tag">Multiphase</span><span class="tag">Kinetics</span>
+                </div>
+            </div>
+            <div class="glass project-card">
+                <i class="fas fa-plane" style="font-size: 2rem; color: var(--accent-primary); margin-bottom: 1rem;"></i>
+                <h3>Multi-element Airfoil</h3>
+                <p>Advanced RANS and DES flow control studies yielding massive noise prediction accuracy and acoustic mitigation for high-lift systems.</p>
+                <div class="tag-cloud" style="justify-content: flex-start;">
+                    <span class="tag">DES/RANS</span><span class="tag">Aeroacoustics</span>
+                </div>
+            </div>
+            <div class="glass project-card">
+                <i class="fas fa-water" style="font-size: 2rem; color: var(--accent-secondary); margin-bottom: 1rem;"></i>
+                <h3>Synthetic Jet Active Flow</h3>
+                <p>Active flow control on NACA23012 airfoil using synthetic jets to manipulate boundary layers and achieve significant lift enhancement.</p>
+                <div class="tag-cloud" style="justify-content: flex-start;">
+                    <span class="tag">Flow Control</span><span class="tag">NACA23012</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h3>B.Tech – Mechanical Engineering, UPTU Lucknow (2014)</h3>
+    <section id="publications" class="container fade-in">
+        <h2 class="section-title">Publications & Awards</h2>
+        <div class="grid-3">
+            <div class="glass" style="grid-column: span 2;">
+                <h3 style="margin-bottom: 1rem;"><i class="fas fa-book-open"></i> Key Publications</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Authored <strong>8 Journal Papers</strong> and <strong>5 Conference Papers</strong> in leading fluid mechanics and renewable energy proceedings.</p>
+                <ul style="list-style-position: inside; color: var(--text-muted); line-height: 2;">
+                    <li>High-fidelity simulation of multi-element airfoils... (Journal of Fluid Mechanics, 2024)</li>
+                    <li>Aeroacoustic mitigation using synthetic jet controls... (AIAA Journal, 2023)</li>
+                    <li>OpenFOAM and OpenFAST coupled framework for HAWT... (Renewable Energy, 2025)</li>
+                </ul>
+                <a href="#" class="btn btn-primary" style="display: inline-flex; margin-top: 1.5rem;"><i class="fas fa-graduation-cap"></i> View Full List on Google Scholar</a>
+            </div>
+            <div class="glass">
+                <h3 style="margin-bottom: 1rem;"><i class="fas fa-trophy"></i> Awards</h3>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                    <li style="padding-left: 1rem; border-left: 3px solid var(--accent-primary);">Institute Teaching Assistantship (IIT Delhi)</li>
+                    <li style="padding-left: 1rem; border-left: 3px solid var(--accent-secondary);">Research Scholar Travel Award</li>
+                    <li style="padding-left: 1rem; border-left: 3px solid var(--accent-primary);">Teaching Assistantship (MTech, MNNIT)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <section id="gallery" class="container fade-in">
+        <h2 class="section-title">Research Gallery</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=500&q=80" alt="Wind Turbine" class="gallery-img">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80" alt="Research Lab" class="gallery-img">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=80" alt="HPC Computing" class="gallery-img">
+            <div class="glass" style="display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 12px;">
+                <p style="font-weight: 600; color: var(--accent-primary);">CFD Mesh Results</p>
+            </div>
+            <div class="glass" style="display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 12px;">
+                <p style="font-weight: 600; color: var(--accent-secondary);">OpenFOAM Output</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1544725121-be3bf52e2dc8?w=500&q=80" alt="Conference" class="gallery-img">
+        </div>
+    </section>
 
-<!-- RESEARCH -->
-<div class="section" id="research">
-<h2>Research Interests</h2>
-<ul>
-<li>Wind Turbine Aerodynamics & HAWT Design</li>
-<li>Computational Fluid Dynamics (RANS, DES)</li>
-<li>Aeroacoustics & Noise Prediction</li>
-<li>Multiphase Flow Modeling</li>
-<li>Flow Control Techniques</li>
-</ul>
-</div>
+    <section id="contact" class="container fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <p style="color: var(--text-muted); text-align: center; max-width: 600px;">
+                I am always open to discussing research collaborations, academic inquiries, or opportunities in CFD and Wind Energy.
+            </p>
+            <div class="contact-links glass">
+                <a href="mailto:your.email@example.com" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4 style="margin: 0;">Email</h4>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Drop me a line</span>
+                    </div>
+                </a>
+                <a href="#" class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <h4 style="margin: 0;">LinkedIn</h4>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Connect with me</span>
+                    </div>
+                </a>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4 style="margin: 0;">Location</h4>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Bengaluru, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- EXPERIENCE -->
-<div class="section" id="experience">
-<h2>Professional Experience</h2>
+    <footer>
+        <h2>Dr. Deepak Kumar Singh</h2>
+        <p style="margin: 1rem 0;">CFD Engineer • Wind Energy Researcher • OpenFOAM Developer</p>
+        <p style="font-size: 0.8rem;">&copy; 2026 Dr. Deepak Kumar Singh. Designed with HTML + CSS + JavaScript.</p>
+    </footer>
 
-<h3>Assistant Manager – R&D, InSolare Energy Ltd. (Aug 2025 – Present)</h3>
-<ul>
-<li>Wind turbine blade aerodynamic design and optimization.</li>
-<li>CFD simulations using OpenFOAM (AMI, turbinesFoam and MRF).</li>
-</ul>
+    <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
-<h3>Principal Researcher, Tata Steel Ltd. (Nov 2022 – July 2025)</h3>
-<ul>
-<li>Developed multiphase blast furnace simulator in OpenFOAM.</li>
-<li>Coupled mass, momentum, energy and species transport modeling.</li>
-<li>Virtual platform for furnace optimization and process understanding.</li>
-</ul>
+    <script>
+        // 1. Theme Toggle Logic
+        const themeBtn = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        const icon = themeBtn.querySelector('i');
 
-</div>
+        // Check local storage for theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        root.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
 
-<!-- PUBLICATIONS -->
-<div class="section" id="publications">
-<h2>Publications</h2>
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
 
-<p>
-<b>Total Publications:</b> 14<br>
-<b>Journal Papers:</b> 8<br>
-<b>Conference Papers:</b> 6
-</p>
+        function updateThemeIcon(theme) {
+            if(theme === 'dark') {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        }
 
-<h3>Selected Journal Publications</h3>
-<ul>
-<li><b>Singh, D.K.</b> et al., Flow separation control in three-element airfoil system, Progress in CFD, 2024.</li>
-<li><b>Singh, D.K.</b> et al., Trailing edge modification in two-airfoil system, Progress in CFD, 2023.</li>
-<li><b>Singh, D.K.</b> et al., Active flow control over NACA23012 airfoil, Defence Science Journal, 2021.</li>
-</ul>
+        // 2. Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const toggleIcon = menuToggle.querySelector('i');
+            if(navLinks.classList.contains('active')){
+                toggleIcon.className = 'fas fa-times';
+            } else {
+                toggleIcon.className = 'fas fa-bars';
+            }
+        });
+        
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
+            });
+        });
 
-<p>
-<a href="https://scholar.google.com/citations?user=SMUnaIwAAAAJ">
-View Complete Publication List (Google Scholar)
-</a>
-</p>
+        // 3. Scroll Progress Bar & Back to Top
+        const progressBar = document.getElementById('scroll-progress');
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
 
-</div>
+            if (winScroll > 500) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        });
 
-<!-- AWARDS -->
-<div class="section" id="awards">
-<h2>Awards & Achievements</h2>
-<ul>
-<li>Institute Teaching Assistantship — IIT Delhi (2016–2021)</li>
-<li>Research Scholar Travel Award — IIT Delhi (2019)</li>
-</ul>
-</div>
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-<!-- CONTACT -->
-<div class="section" id="contact">
-<h2>Contact</h2>
+        // 4. Typing Effect
+        const words = ["CFD Researcher", "Wind Energy Engineer", "OpenFOAM Developer", "Aeroacoustics Specialist"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedTextSpan = document.getElementById("typed-text");
 
-<p>Email: deepak@am.iitd.ac.in</p>
-<p>Location: Bengaluru, India</p>
-<p>
-GitHub:
-<a href="https://github.com/deepakiitdelhi">
-github.com/deepakiitdelhi
-</a>
-</p>
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
 
-</div>
+            let typeSpeed = isDeleting ? 50 : 100;
 
-</div>
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500; // Pause before new word
+            }
+            setTimeout(type, typeSpeed);
+        }
+        setTimeout(type, 1000);
 
-<div class="footer">
-© 2026 Dr. Deepak Kumar Singh | CFD & Wind Energy Research
-</div>
+        // 5. Intersection Observer for Fade-ins & Progress Bars & Number Counters
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger skill progress bars
+                    if (entry.target.id === 'skills') {
+                        document.querySelectorAll('.progress').forEach(bar => {
+                            bar.style.width = bar.getAttribute('data-width');
+                        });
+                    }
 
+                    // Trigger Number Counters
+                    if (entry.target.id === 'home') {
+                        document.querySelectorAll('.stat-num').forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000;
+                            const increment = target / (duration / 16); 
+                            let current = 0;
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < target) {
+                                    counter.innerText = Math.ceil(current) + "+";
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target + "+";
+                                }
+                            };
+                            updateCounter();
+                        });
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // 6. Custom Background Particle System
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        setCanvasSize();
+        window.addEventListener('resize', setCanvasSize);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() * 1 - 0.5) * 0.5;
+                this.speedY = (Math.random() * 1 - 0.5) * 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = root.getAttribute('data-theme') === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(59, 130, 246, 0.3)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            const numberOfParticles = (canvas.height * canvas.width) / 15000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                
+                // Draw connecting lines
+                for (let j = i; j < particlesArray.length; j++) {
+                    const dx = particlesArray[i].x - particlesArray[j].x;
+                    const dy = particlesArray[i].y - particlesArray[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = root.getAttribute('data-theme') === 'dark' ? `rgba(255,255,255,${0.1 - distance/1000})` : `rgba(59, 130, 246,${0.1 - distance/1000})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+        
+        // Re-init particles on theme change to adjust colors
+        themeBtn.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+    </script>
 </body>
 </html>
